@@ -8,12 +8,18 @@ public class empleado extends Usuario {
     private String puestoLaboral;
     private int aniosTrabajando;
 
-    public empleado(String carrera, String puestoLaboral, int aniosTrabajando, String nombre, String apellido, String contra, Date fechaNacimiento, String numId) {
-        super(nombre, apellido, contra, fechaNacimiento, numId);
+    public empleado(String carrera, String puestoLaboral, int aniosTrabajando, String nombre, String apellido, String contra, Date fechaNacimiento, String sexo, String departamento) {
+        super(nombre, apellido, contra, fechaNacimiento, sexo, departamento);
         this.carrera = carrera;
         this.puestoLaboral = puestoLaboral;
         this.aniosTrabajando = aniosTrabajando;
     }
+
+    
+
+    
+
+    
 
     public String getCarrera() {
         return carrera;

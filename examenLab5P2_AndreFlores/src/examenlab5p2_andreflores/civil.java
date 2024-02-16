@@ -7,9 +7,15 @@ import java.util.Date;
 public class civil extends Usuario {
     public ArrayList <tramite> listaTramites;
 
-    public civil(String nombre, String apellido, String contra, Date fechaNacimiento, String numId) {
-        super(nombre, apellido, contra, fechaNacimiento, numId);
+    public civil(String nombre, String apellido, String contra, Date fechaNacimiento, String sexo, String departamento) {
+        super(nombre, apellido, contra, fechaNacimiento, sexo, departamento);
     }
+
+   
+
+    
+
+    
 
     public ArrayList<tramite> getListaTramites() {
         return listaTramites;
