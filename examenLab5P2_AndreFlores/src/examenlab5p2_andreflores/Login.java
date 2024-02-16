@@ -662,23 +662,23 @@ public class Login extends javax.swing.JFrame {
         Date fn = new Date(Integer.parseInt(a) - 1900, Integer.parseInt(m) - 1, Integer.parseInt(d));
         usuarios.add(new empleado("ing en sistemas", "gerente", 23, "andre", "flores", "af", fn, "masculino", "francisco morazan"));
         String a2, m2, d2;
-        a = "1997";
-        m = "06";
-        d = "12";
+        a2 = "1997";
+        m2 = "06";
+        d2 = "12";
         Date fn2 = new Date(Integer.parseInt(a) - 1900, Integer.parseInt(m) - 1, Integer.parseInt(d));
         usuarios.add(new civil("manuel", "casco", "mc", fn2," masculino", "cortes"));
         String a3, m3, d3;
-        a = "3050";
-        m = "07";
-        d = "05";
+        a3 = "3050";
+        m3 = "07";
+        d3 = "05";
         Date fn3 = new Date(Integer.parseInt(a) - 1900, Integer.parseInt(m) - 1, Integer.parseInt(d));
         usuarios.add(new civil("Sami", "Falck", "sf", fn3, "masculino" ,"francisco Morazan"));
         String a4, m4, d4;
-        a = "4006";
-        m = "09";
-        d = "12";
+        a4 = "4006";
+        m4 = "09";
+        d4 = "12";
         Date fn4 = new Date(Integer.parseInt(a) - 1900, Integer.parseInt(m) - 1, Integer.parseInt(d));
-        usuarios.add(new civil("Sami", "Falck", "sf", fn3, "masculino" ,"comayagua"));
+        usuarios.add(new civil("mama", "pepa", "mp", fn4, "masculino" ,"comayagua"));
 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
