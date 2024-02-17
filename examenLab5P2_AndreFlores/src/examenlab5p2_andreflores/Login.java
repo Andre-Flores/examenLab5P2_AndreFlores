@@ -19,7 +19,11 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Login() {
+
         initComponents();
+        for (Usuario usuario : usuarios) {
+            cb_modificarciviles.addItem(usuario.getNumId());
+        }
     }
 
     /**
@@ -40,7 +44,7 @@ public class Login extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jt_tramites = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         cb_modificarciviles = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
@@ -122,8 +126,8 @@ public class Login extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Tramites:");
 
-        jTable2.setBackground(new java.awt.Color(255, 255, 255));
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jt_tramites.setBackground(new java.awt.Color(255, 255, 255));
+        jt_tramites.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -142,7 +146,7 @@ public class Login extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(jt_tramites);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -698,12 +702,10 @@ public class Login extends javax.swing.JFrame {
         for (Usuario usuario : usuarios) {
             if (usuario instanceof civil) {
                 civil civiles = (civil) usuario;
-                modeloTabla.addRow(new Object[]{civiles.getNombre()+ " " +civiles.getApellido(), civiles.getNumId(), civiles.getFechaNacimiento()});
+                modeloTabla.addRow(new Object[]{civiles.getNombre() + " " + civiles.getApellido(), civiles.getNumId(), civiles.getFechaNacimiento()});
             }
         }
-        for (Usuario usuario : usuarios) {
-            cb_modificarciviles.addItem(usuario.getNumId());
-        }
+
 
     }//GEN-LAST:event_btn_EntrarMouseClicked
 
@@ -741,8 +743,14 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_cb_modificarcivilesItemStateChanged
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        // tramites.add(new tramite(tf_nombreTramite.getText(), ta_tramite.getText(), , numId));
-
+//        Date fecha = new Date();
+//
+//        tramites.add(new tramite(tf_nombreTramite.getText(), ta_tramite.getText(), fecha));
+//        System.out.println(tramites);
+//        DefaultTableModel modeloTramites = (DefaultTableModel) jt_tramites.getModel();
+//        ArrayList<tramite> tramite = tramites;
+//        jt_tramites.addRow(new Object[]{tramites + civiles.getApellido(), civiles.getNumId(), civiles.getFechaNacimiento()});
+//    )
 
     }//GEN-LAST:event_jButton2MouseClicked
 
@@ -854,13 +862,13 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JFrame jf_Civil;
     private javax.swing.JFrame jframe_empleado;
     private javax.swing.JLabel jl_nombreUsuario;
     private javax.swing.JLabel jl_nombreUsuario1;
     private javax.swing.JTable jt_Tramitespersonal;
     private javax.swing.JTable jt_infoPersonal;
+    private javax.swing.JTable jt_tramites;
     private javax.swing.JPanel login;
     private javax.swing.JTextArea ta_tramite;
     private javax.swing.JTextField tf_Contrasenia;

@@ -47,7 +47,7 @@ public class empleado extends Usuario {
 
     @Override
     public String toString() {
-        return "empleado{" + "carrera=" + carrera + ", puestoLaboral=" + puestoLaboral + ", aniosTrabajando=" + aniosTrabajando + '}';
+        return "carrera: " + carrera + ", puesto laboral: " + puestoLaboral + ", anios Trabajando: " + aniosTrabajando;
     }
 
 }

@@ -9,11 +9,11 @@ public class tramite {
     private Date fechaEnviado;
     private String numId;
 
-    public tramite(String nombreTramite, String descripcion, Date fechaEnviado, String numId) {
+    public tramite(String nombreTramite, String descripcion, Date fechaEnviado) {
         this.nombreTramite = nombreTramite;
         this.descripcion = descripcion;
         this.fechaEnviado = fechaEnviado;
-        this.numId = numId;
+
     }
 
     public String getNombreTramite() {
