@@ -73,6 +73,9 @@ public class Login extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         tf_nombreTramite = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jButton2 = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         jl_nombreUsuario1 = new javax.swing.JLabel();
         btn_cerrarsesioncivil = new javax.swing.JButton();
@@ -201,10 +204,6 @@ public class Login extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Departamento");
-
-        cb_modsexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cb_modDepa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
@@ -456,6 +455,15 @@ public class Login extends javax.swing.JFrame {
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText("Descripcion");
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane5.setViewportView(jTextArea1);
+
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
+        jButton2.setText("Enviar");
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -466,11 +474,16 @@ public class Login extends javax.swing.JFrame {
                         .addGap(288, 288, 288)
                         .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(tf_nombreTramite, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(265, 265, 265)
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tf_nombreTramite)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(297, 297, 297)
+                        .addComponent(jButton2)))
                 .addContainerGap(362, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -482,7 +495,11 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(tf_nombreTramite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Gestion de tramites", jPanel8);
@@ -676,7 +693,8 @@ public class Login extends javax.swing.JFrame {
         for (Usuario usuario : usuarios) {
             cb_modificarciviles.addItem(usuario.getNumId());
         }
-
+        DefaultTableModel modelotablaPersonal = (DefaultTableModel) jt_infoPersonal.getModel();
+        
     }//GEN-LAST:event_btn_EntrarMouseClicked
 
     private void btn_cerrarsesionEmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cerrarsesionEmpMouseClicked
@@ -704,10 +722,12 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cerrarsesioncivilActionPerformed
 
     private void cb_modificarcivilesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_modificarcivilesItemStateChanged
-        civil temp = (civil)usuarios.get(cb_modificarciviles.getSelectedIndex());
-       tf_modnombrecivil.setText(temp.getNombre());
-       tf_modApellido.setText(temp.getApellido());
-
+        cb_modificarciviles.setSelectedIndex(0);
+        System.out.println(usuarios.size());
+        Usuario temp =  usuarios.get(cb_modificarciviles.getSelectedIndex());
+        tf_modnombrecivil.setText(temp.getNombre());
+        tf_modApellido.setText(temp.getApellido());
+        tf_modcontracivil.setText(temp.getContra());
 
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_modificarcivilesItemStateChanged
@@ -781,6 +801,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_modificarciviles;
     private javax.swing.JComboBox<String> cb_modsexo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -810,10 +831,12 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JFrame jf_Civil;
     private javax.swing.JFrame jframe_empleado;
     private javax.swing.JLabel jl_nombreUsuario;
