@@ -787,7 +787,12 @@ public class Login extends javax.swing.JFrame {
         d = "12";
         Date fn4 = new Date(Integer.parseInt(a) - 1900, Integer.parseInt(m) - 1, Integer.parseInt(d));
         usuarios.add(new civil("mama", "pepa", "mp", fn4, "masculino", "comayagua"));
-
+        String a5, m5, d5;
+        a = "2003";
+        m = "06";
+        d = "02";
+        Date fn5 = new Date(Integer.parseInt(a) - 1900, Integer.parseInt(m) - 1, Integer.parseInt(d));
+        usuarios.add(new empleado("ing gastronomica", "gerente", 20, "pancho", "romero", "pr", fn, "masculino", "francisco morazan"));
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
