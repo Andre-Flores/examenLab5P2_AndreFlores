@@ -42,23 +42,23 @@ public class Login extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cb_modificarciviles = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        tf_modnombrecivil = new javax.swing.JTextField();
+        tf_modApellido = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        tf_modcontracivil = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cb_modsexo = new javax.swing.JComboBox<>();
+        cb_modDepa = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
         jl_nombreUsuario = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btn_cerrarsesionEmp = new javax.swing.JButton();
         jf_Civil = new javax.swing.JFrame();
         jPanel6 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
@@ -75,6 +75,7 @@ public class Login extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jl_nombreUsuario1 = new javax.swing.JLabel();
+        btn_cerrarsesioncivil = new javax.swing.JButton();
         login = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -175,6 +176,12 @@ public class Login extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(204, 204, 204));
         jPanel5.setForeground(new java.awt.Color(153, 255, 153));
 
+        cb_modificarciviles.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_modificarcivilesItemStateChanged(evt);
+            }
+        });
+
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Nombre");
@@ -195,9 +202,9 @@ public class Login extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Departamento");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cb_modsexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cb_modDepa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
@@ -217,17 +224,17 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cb_modificarciviles, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_modnombrecivil, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel11)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tf_modcontracivil, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(155, 155, 155)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_modApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -236,8 +243,8 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(jLabel12)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.LEADING, 0, 137, Short.MAX_VALUE)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(cb_modDepa, javax.swing.GroupLayout.Alignment.LEADING, 0, 137, Short.MAX_VALUE)
+                                    .addComponent(cb_modsexo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(55, 55, 55)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -248,31 +255,31 @@ public class Login extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cb_modificarciviles, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel9))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_modnombrecivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_modApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tf_modcontracivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cb_modsexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cb_modDepa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                 .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
@@ -296,17 +303,17 @@ public class Login extends javax.swing.JFrame {
         jl_nombreUsuario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jl_nombreUsuario.setForeground(new java.awt.Color(0, 0, 0));
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Cerrar sesion");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_cerrarsesionEmp.setBackground(new java.awt.Color(255, 255, 255));
+        btn_cerrarsesionEmp.setForeground(new java.awt.Color(0, 0, 0));
+        btn_cerrarsesionEmp.setText("Cerrar sesion");
+        btn_cerrarsesionEmp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btn_cerrarsesionEmpMouseClicked(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_cerrarsesionEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_cerrarsesionEmpActionPerformed(evt);
             }
         });
 
@@ -321,7 +328,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(jl_nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(213, 213, 213)
-                .addComponent(jButton2)
+                .addComponent(btn_cerrarsesionEmp)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -332,7 +339,7 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                         .addComponent(jl_nombreUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jButton2))
+                    .addComponent(btn_cerrarsesionEmp))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -489,6 +496,20 @@ public class Login extends javax.swing.JFrame {
         jl_nombreUsuario1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jl_nombreUsuario1.setForeground(new java.awt.Color(0, 0, 0));
 
+        btn_cerrarsesioncivil.setBackground(new java.awt.Color(255, 255, 255));
+        btn_cerrarsesioncivil.setForeground(new java.awt.Color(0, 0, 0));
+        btn_cerrarsesioncivil.setText("Cerrar sesion");
+        btn_cerrarsesioncivil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_cerrarsesioncivilMouseClicked(evt);
+            }
+        });
+        btn_cerrarsesioncivil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cerrarsesioncivilActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -499,15 +520,22 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel22)
                 .addGap(27, 27, 27)
                 .addComponent(jl_nombreUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(203, 203, 203)
+                .addComponent(btn_cerrarsesioncivil)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                    .addComponent(jl_nombreUsuario1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                            .addComponent(jl_nombreUsuario1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(btn_cerrarsesioncivil)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -556,6 +584,11 @@ public class Login extends javax.swing.JFrame {
         btn_Entrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_EntrarMouseClicked(evt);
+            }
+        });
+        btn_Entrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_EntrarActionPerformed(evt);
             }
         });
 
@@ -615,6 +648,8 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_EntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_EntrarMouseClicked
+        this.setVisible(false);
+
         for (Usuario u : usuarios) {
             if (u instanceof civil) {
                 if (tf_NombreCompleto.getText().equals(u.getNombre() + " " + u.getApellido())) {
@@ -622,14 +657,14 @@ public class Login extends javax.swing.JFrame {
                     jf_Civil.pack();
                     jl_nombreUsuario.setText(u.getNombre() + " " + u.getApellido());
                 }
-            } else if( u instanceof empleado){
-                 if (tf_NombreCompleto.getText().equals(u.getNombre() + " " + u.getApellido())) {
-                jframe_empleado.setVisible(true);
-                jframe_empleado.pack();
-                jl_nombreUsuario.setText(u.getNombre() + " " + u.getApellido());
+            } else if (u instanceof empleado) {
+                if (tf_NombreCompleto.getText().equals(u.getNombre() + " " + u.getApellido())) {
+                    jframe_empleado.setVisible(true);
+                    jframe_empleado.pack();
+                    jl_nombreUsuario.setText(u.getNombre() + " " + u.getApellido());
+                }
             }
-            }
-           
+
         }
         DefaultTableModel modeloTabla = (DefaultTableModel) jTable1.getModel();
         for (Usuario usuario : usuarios) {
@@ -638,18 +673,44 @@ public class Login extends javax.swing.JFrame {
                 modeloTabla.addRow(new Object[]{civiles.getNombre(), civiles.getNumId(), civiles.getFechaNacimiento()});
             }
         }
-
+        for (Usuario usuario : usuarios) {
+            cb_modificarciviles.addItem(usuario.getNumId());
+        }
 
     }//GEN-LAST:event_btn_EntrarMouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void btn_cerrarsesionEmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cerrarsesionEmpMouseClicked
+        jframe_empleado.setVisible(false);
+        this.setVisible(true);
+        this.pack();
 
+    }//GEN-LAST:event_btn_cerrarsesionEmpMouseClicked
 
-    }//GEN-LAST:event_jButton2MouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_cerrarsesionEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cerrarsesionEmpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_cerrarsesionEmpActionPerformed
+
+    private void btn_EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EntrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_EntrarActionPerformed
+
+    private void btn_cerrarsesioncivilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cerrarsesioncivilMouseClicked
+        jf_Civil.setVisible(false);
+        this.setVisible(true);
+        this.pack();    }//GEN-LAST:event_btn_cerrarsesioncivilMouseClicked
+
+    private void btn_cerrarsesioncivilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cerrarsesioncivilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cerrarsesioncivilActionPerformed
+
+    private void cb_modificarcivilesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_modificarcivilesItemStateChanged
+        civil temp = (civil)usuarios.get(cb_modificarciviles.getSelectedIndex());
+       tf_modnombrecivil.setText(temp.getNombre());
+       tf_modApellido.setText(temp.getApellido());
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_modificarcivilesItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -666,19 +727,19 @@ public class Login extends javax.swing.JFrame {
         m2 = "06";
         d2 = "12";
         Date fn2 = new Date(Integer.parseInt(a) - 1900, Integer.parseInt(m) - 1, Integer.parseInt(d));
-        usuarios.add(new civil("manuel", "casco", "mc", fn2," masculino", "cortes"));
+        usuarios.add(new civil("manuel", "casco", "mc", fn2, " masculino", "cortes"));
         String a3, m3, d3;
         a3 = "3050";
         m3 = "07";
         d3 = "05";
         Date fn3 = new Date(Integer.parseInt(a) - 1900, Integer.parseInt(m) - 1, Integer.parseInt(d));
-        usuarios.add(new civil("Sami", "Falck", "sf", fn3, "masculino" ,"francisco Morazan"));
+        usuarios.add(new civil("Sami", "Falck", "sf", fn3, "masculino", "francisco Morazan"));
         String a4, m4, d4;
         a4 = "4006";
         m4 = "09";
         d4 = "12";
         Date fn4 = new Date(Integer.parseInt(a) - 1900, Integer.parseInt(m) - 1, Integer.parseInt(d));
-        usuarios.add(new civil("mama", "pepa", "mp", fn4, "masculino" ,"comayagua"));
+        usuarios.add(new civil("mama", "pepa", "mp", fn4, "masculino", "comayagua"));
 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -714,11 +775,12 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Entrar;
+    private javax.swing.JButton btn_cerrarsesionEmp;
+    private javax.swing.JButton btn_cerrarsesioncivil;
+    private javax.swing.JComboBox<String> cb_modDepa;
+    private javax.swing.JComboBox<String> cb_modificarciviles;
+    private javax.swing.JComboBox<String> cb_modsexo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -752,9 +814,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JFrame jf_Civil;
     private javax.swing.JFrame jframe_empleado;
     private javax.swing.JLabel jl_nombreUsuario;
@@ -764,7 +823,11 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel login;
     private javax.swing.JTextField tf_Contrasenia;
     private javax.swing.JTextField tf_NombreCompleto;
+    private javax.swing.JTextField tf_modApellido;
+    private javax.swing.JTextField tf_modcontracivil;
+    private javax.swing.JTextField tf_modnombrecivil;
     private javax.swing.JTextField tf_nombreTramite;
     // End of variables declaration//GEN-END:variables
 public static ArrayList<Usuario> usuarios = new ArrayList();
+    public static ArrayList<tramite> tramites = new ArrayList();
 }

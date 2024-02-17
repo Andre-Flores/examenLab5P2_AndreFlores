@@ -97,7 +97,7 @@ public class Usuario {
             municipio += numero2;
             int numeroFinal = random.nextInt(10000, 99999);
             identidad = "02" + municipio + (fechaNacimiento.getYear() + 1900) + numeroFinal;
-        } else if (departamento.equalsIgnoreCase("comayaguela")) {
+        } else if (departamento.equalsIgnoreCase("comayagua")) {
             int numero = random.nextInt(3);
             int numero2 = random.nextInt(2);
             municipio += numero;
