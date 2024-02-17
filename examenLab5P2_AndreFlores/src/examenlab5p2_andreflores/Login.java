@@ -54,7 +54,7 @@ public class Login extends javax.swing.JFrame {
         cb_modsexo = new javax.swing.JComboBox<>();
         cb_modDepa = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_modciviles = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
         jl_nombreUsuario = new javax.swing.JLabel();
@@ -74,7 +74,7 @@ public class Login extends javax.swing.JFrame {
         tf_nombreTramite = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        ta_tramite = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         jl_nombreUsuario1 = new javax.swing.JLabel();
@@ -209,10 +209,15 @@ public class Login extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Fecha de nacimiento");
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Modificar");
+        btn_modciviles.setBackground(new java.awt.Color(255, 255, 255));
+        btn_modciviles.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btn_modciviles.setForeground(new java.awt.Color(0, 0, 0));
+        btn_modciviles.setText("Modificar");
+        btn_modciviles.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_modcivilesMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -245,7 +250,7 @@ public class Login extends javax.swing.JFrame {
                                     .addComponent(cb_modDepa, javax.swing.GroupLayout.Alignment.LEADING, 0, 137, Short.MAX_VALUE)
                                     .addComponent(cb_modsexo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(55, 55, 55)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btn_modciviles, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(399, 399, 399))))
@@ -281,7 +286,7 @@ public class Login extends javax.swing.JFrame {
                                 .addComponent(cb_modDepa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+                                .addComponent(btn_modciviles, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                                 .addGap(22, 22, 22))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
@@ -455,14 +460,19 @@ public class Login extends javax.swing.JFrame {
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText("Descripcion");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane5.setViewportView(jTextArea1);
+        ta_tramite.setColumns(20);
+        ta_tramite.setRows(5);
+        jScrollPane5.setViewportView(ta_tramite);
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Enviar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -673,6 +683,7 @@ public class Login extends javax.swing.JFrame {
                     jf_Civil.setVisible(true);
                     jf_Civil.pack();
                     jl_nombreUsuario.setText(u.getNombre() + " " + u.getApellido());
+                    cb_modificarciviles.setSelectedIndex(0);
                 }
             } else if (u instanceof empleado) {
                 if (tf_NombreCompleto.getText().equals(u.getNombre() + " " + u.getApellido())) {
@@ -687,14 +698,13 @@ public class Login extends javax.swing.JFrame {
         for (Usuario usuario : usuarios) {
             if (usuario instanceof civil) {
                 civil civiles = (civil) usuario;
-                modeloTabla.addRow(new Object[]{civiles.getNombre(), civiles.getNumId(), civiles.getFechaNacimiento()});
+                modeloTabla.addRow(new Object[]{civiles.getNombre()+ " " +civiles.getApellido(), civiles.getNumId(), civiles.getFechaNacimiento()});
             }
         }
         for (Usuario usuario : usuarios) {
             cb_modificarciviles.addItem(usuario.getNumId());
         }
-        DefaultTableModel modelotablaPersonal = (DefaultTableModel) jt_infoPersonal.getModel();
-        
+
     }//GEN-LAST:event_btn_EntrarMouseClicked
 
     private void btn_cerrarsesionEmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cerrarsesionEmpMouseClicked
@@ -722,15 +732,24 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cerrarsesioncivilActionPerformed
 
     private void cb_modificarcivilesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_modificarcivilesItemStateChanged
-        cb_modificarciviles.setSelectedIndex(0);
-        System.out.println(usuarios.size());
-        Usuario temp =  usuarios.get(cb_modificarciviles.getSelectedIndex());
+        Usuario temp = usuarios.get(cb_modificarciviles.getSelectedIndex());
         tf_modnombrecivil.setText(temp.getNombre());
         tf_modApellido.setText(temp.getApellido());
         tf_modcontracivil.setText(temp.getContra());
 
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_modificarcivilesItemStateChanged
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // tramites.add(new tramite(tf_nombreTramite.getText(), ta_tramite.getText(), , numId));
+
+
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void btn_modcivilesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_modcivilesMouseClicked
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_modcivilesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -749,15 +768,15 @@ public class Login extends javax.swing.JFrame {
         Date fn2 = new Date(Integer.parseInt(a) - 1900, Integer.parseInt(m) - 1, Integer.parseInt(d));
         usuarios.add(new civil("manuel", "casco", "mc", fn2, " masculino", "cortes"));
         String a3, m3, d3;
-        a3 = "3050";
-        m3 = "07";
-        d3 = "05";
+        a = "3050";
+        m = "07";
+        d = "05";
         Date fn3 = new Date(Integer.parseInt(a) - 1900, Integer.parseInt(m) - 1, Integer.parseInt(d));
         usuarios.add(new civil("Sami", "Falck", "sf", fn3, "masculino", "francisco Morazan"));
         String a4, m4, d4;
-        a4 = "4006";
-        m4 = "09";
-        d4 = "12";
+        a = "4006";
+        m = "09";
+        d = "12";
         Date fn4 = new Date(Integer.parseInt(a) - 1900, Integer.parseInt(m) - 1, Integer.parseInt(d));
         usuarios.add(new civil("mama", "pepa", "mp", fn4, "masculino", "comayagua"));
 
@@ -797,10 +816,10 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btn_Entrar;
     private javax.swing.JButton btn_cerrarsesionEmp;
     private javax.swing.JButton btn_cerrarsesioncivil;
+    private javax.swing.JButton btn_modciviles;
     private javax.swing.JComboBox<String> cb_modDepa;
     private javax.swing.JComboBox<String> cb_modificarciviles;
     private javax.swing.JComboBox<String> cb_modsexo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
@@ -836,7 +855,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JFrame jf_Civil;
     private javax.swing.JFrame jframe_empleado;
     private javax.swing.JLabel jl_nombreUsuario;
@@ -844,6 +862,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTable jt_Tramitespersonal;
     private javax.swing.JTable jt_infoPersonal;
     private javax.swing.JPanel login;
+    private javax.swing.JTextArea ta_tramite;
     private javax.swing.JTextField tf_Contrasenia;
     private javax.swing.JTextField tf_NombreCompleto;
     private javax.swing.JTextField tf_modApellido;
